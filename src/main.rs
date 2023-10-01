@@ -11,15 +11,16 @@ fn get_sensor_data() -> Result<String, Error> {
             let name = feature.name().transpose()?.unwrap_or("N/A");
             for sub_feature in feature.sub_feature_iter() {
                 if let Ok(value) = sub_feature.raw_value() {
-                    body.push_str("#\n");
-                    body.push_str("#\n");
                     body.push_str(
-                        format!("{}_{}_{}_{}_{} = {}\n", 
-                                chip.bus().to_string().replace(" ", "_"),
+                        format!("#\n"
+                        ).as_str()
+                    );
+                    body.push_str(
+                        format!("{}_{}_{}_{} {}\n", 
                                 chip.to_string().replace("-","_"), 
-                                name, 
-                                feature, 
-                                sub_feature, 
+                                name.to_string().replace(" ","_"),
+                                feature.to_string().replace(" ","_"), 
+                                sub_feature.to_string().replace(" ","_"), 
                                 value
                         ).as_str()
                     );

@@ -8,7 +8,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     honor_labels: true
-    honor_timestaps: true
+    honor_timestamps: true
     scheme: http
     metrics_path: /metrics
     static_configs:
