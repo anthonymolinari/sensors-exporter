@@ -18,6 +18,6 @@ Compile
 ```
 cd sensors-exporter && cargo build --release
 
-sudo cp ./targets/release/sensors-exporter /etc/bin/sensors-exporter
+sudo cp ./targets/release/sensors-exporter /bin/sensors-exporter
 
 ```
