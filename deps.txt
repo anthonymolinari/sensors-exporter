@@ -1,0 +1,4 @@
+librust-clang-sys-dev
+lm-sensors
+librust-libsensors-sys-dev
+libsensors-dev
