@@ -14,12 +14,12 @@ fn get_sensor_data() -> Result<String, Error> {
                     body.push_str("#\n");
                     body.push_str("#\n");
                     body.push_str(
-                        format!("{}_{}_{}_{}_{} = {}\n", 
+                        format!("{}_{}_{}_{}_{} {}\n", 
                                 chip.bus().to_string().replace(" ", "_"),
                                 chip.to_string().replace("-","_"), 
-                                name, 
-                                feature, 
-                                sub_feature, 
+                                name.to_string().replace(" ","_"),
+                                feature.to_string().replace(" ","_"), 
+                                sub_feature.to_string().replace(" ","_"), 
                                 value
                         ).as_str()
                     );
