@@ -1,7 +1,6 @@
 name: build docker image
 on:
   push:
-    paths: ['./src/**', 'dockerfile', '.github/**']
     branches: ['main']
 
 jobs:
