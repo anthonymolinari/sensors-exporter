@@ -17,10 +17,10 @@ fn get_sensor_data() -> Result<String, Error> {
                     );
                     body.push_str(
                         format!("{}_{}_{}_{} {}\n", 
-                                chip.to_string().replace("-","_"), 
-                                name.to_string().replace(" ","_"),
-                                feature.to_string().replace(" ","_"), 
-                                sub_feature.to_string().replace(" ","_"), 
+                                chip,
+                                name,
+                                feature,
+                                sub_feature,
                                 value
                         ).as_str()
                     );
@@ -28,7 +28,13 @@ fn get_sensor_data() -> Result<String, Error> {
             }
         }
     }
-    Ok(body)
+    Ok(
+        body.to_string()
+            .replace(" ", "_")
+            .replace("-", "_")
+            .replace("-", "_")
+            .replace("+", "")
+    )
 }
 
 #[get("/metrics")]
