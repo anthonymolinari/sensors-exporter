@@ -13,6 +13,7 @@ pub fn get_sensor_data() -> Result<String, Error> {
                     let metrics_label = format!("{}_{}_{}_{}", chip, name, feature, sub_feature)
                         .replace(" ", "_")
                         .replace("-", "_")
+                        .replace(".", "_")
                         .replace("+", "");
                     body.push_str(format!("# TYPE {} gauge\n", metrics_label).as_str());
                     body.push_str(format!("# HELP {} {:?}\n", metrics_label, sub_feature.kind().unwrap_or_default()).as_str());
